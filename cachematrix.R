@@ -31,7 +31,7 @@ makeCacheMatrix <- function(x = matrix()) {
       ## and replace x(the defining dataset) 
       ## with y(the calling dataset)
     
-    s <<- Null
+    s <<- NULL
       ## this replaces s with Null in the 
       ## calling environment so it will
       ## start fresh with a new solve upon
@@ -55,7 +55,7 @@ makeCacheMatrix <- function(x = matrix()) {
     ## s from the defining environment
   
   list(set = set, get = get, 
-       setsolve = setsolve
+       setsolve = setsolve,
        getsolve = getsolve)
     ## outputs a list of four functions to be used
     ## within the cacheSolve function (so the 
@@ -94,7 +94,7 @@ cacheSolve <- function(x, ...) {
     ## continueing with the else, if s was Null data
     ## x from the defining environment is calculated
   
-  x$setmean(s)
+  x$setsolve(s)
     ## takes the results of inversing the matrix s
     ## and pushes it to the defining environment
     ## so the next time the function is called
